@@ -23,6 +23,7 @@ public class LoginFrame extends JFrame {
 
     private void initComponents() {
         JPanel root = new JPanel(new BorderLayout()) {
+            @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 Graphics2D g2 = (Graphics2D) g;
@@ -55,7 +56,7 @@ public class LoginFrame extends JFrame {
 
         JSeparator sep = new JSeparator(JSeparator.VERTICAL);
         sep.setForeground(new Color(45, 55, 80));
-        sep.setBounds(370, 40, 2, 420);
+        sep.setBounds(370, 0, 2, 462);
         leftPanel.add(sep);
 
         JPanel rightPanel = new JPanel(null);
@@ -105,13 +106,16 @@ public class LoginFrame extends JFrame {
         loginButton.setBorderPainted(false);
         loginButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         loginButton.addMouseListener(new MouseAdapter() {
+            @Override
             public void mouseEntered(MouseEvent e) { loginButton.setBackground(new Color(63, 153, 225)); }
+            @Override
             public void mouseExited(MouseEvent e) { loginButton.setBackground(new Color(49, 130, 206)); }
         });
         loginButton.addActionListener(e -> doLogin());
         rightPanel.add(loginButton);
 
         passwordField.addKeyListener(new KeyAdapter() {
+            @Override
             public void keyPressed(KeyEvent e) { if (e.getKeyCode() == KeyEvent.VK_ENTER) doLogin(); }
         });
 
