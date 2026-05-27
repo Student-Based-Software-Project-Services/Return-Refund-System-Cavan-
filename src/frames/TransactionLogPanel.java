@@ -39,6 +39,7 @@ public class TransactionLogPanel extends JPanel {
 
         String[] cols = {"ID", "Username", "Action", "Details", "Timestamp"};
         tableModel = new DefaultTableModel(cols, 0) {
+            @Override
             public boolean isCellEditable(int r, int c) { return false; }
         };
         table = new JTable(tableModel);
